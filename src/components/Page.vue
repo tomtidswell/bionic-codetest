@@ -28,7 +28,10 @@ export default {
       messages: [
         { incoming: true, text: 'Hello! Please choose from one of the options below:', autoAdvance: 3000 },
         { incoming: false, options: ['Option A', 'Option B', 'Option C'] },
-        { incoming: true, text: '? Great choice!', reiterate: 1 },
+        { incoming: true, text: '? Great choice!', reiterate: 1, autoAdvance: 1000  },
+        // { incoming: true, text: 'Now please choose from one of the next options:', autoAdvance: 2000 },
+        // { incoming: false, options: ['Option A', 'Option B', 'Option C'] },
+        // { incoming: true, text: '? Great choice!', reiterate: 4 },
       ]
     }
   },
