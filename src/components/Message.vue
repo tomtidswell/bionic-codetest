@@ -3,22 +3,28 @@
     <div class="avatar">{{ name }}</div>
     <Thinking v-if="pending" />
     <div class="content" v-else>
-      <div class="text">{{messageData.text}}</div>
-      <div class="options" @click="handleOptionChoice">{{messageData.options}}</div>
+      <div class="text">
+        <strong v-if="messageData.reiterate">{{reiterate}}</strong>{{messageData.text}}
+      </div>
+      <Options v-if="messageData.options" @choice="handleOptionChoice" :options="messageData.options" />
     </div>
   </div>
 </template>
 
 <script>
 import Thinking from './Thinking'
+import Options from './Options'
+
 export default {
   name: "Message",
   components: {
-    Thinking
+    Thinking,
+    Options
   },
   props: {
     messageData: Object,
-    index: Number
+    index: Number,
+    reiterate: String
   },
   data() {
     return {
@@ -42,8 +48,9 @@ export default {
     }
   },
   methods: {
-    handleOptionChoice() {
-      this.$emit('advance', this.index, 'CHOSEN')
+    handleOptionChoice(option) {
+      console.log('advance', this.index, option)
+      this.$emit('advance', this.index, option)
     }
   }
 };

@@ -1,7 +1,12 @@
 <template>
   <div class="page">
     <template v-for="(message, index) in messages">
-      <Message :messageData="message" :key="index" :index="index" v-if="index <= currentIndex" @advance="handleAdvance"/>
+      <Message v-if="index <= currentIndex"
+               :messageData="message" 
+               :key="index" 
+               :index="index" 
+               :reiterate="choices[message.reiterate]"
+               @advance="handleAdvance" />
     </template>
   </div>
 </template>
@@ -19,17 +24,21 @@ export default {
   data() {
     return {
       currentIndex: 0,
+      choices: {},
       messages: [
         { incoming: true, text: 'Hello! Please choose from one of the options below:', autoAdvance: 3000 },
         { incoming: false, options: ['Option A', 'Option B', 'Option C'] },
-        { incoming: true, text: 'Option X? Great choice!' },
+        { incoming: true, text: '? Great choice!', reiterate: 1 },
       ]
     }
   },
   methods: {
-    handleAdvance(i, params) {
-      console.log('Advancing from', i, params)
-      this.currentIndex = i+1
+    handleAdvance(i, option) {
+      // save the chosen answer
+      this.choices[i] = option
+      // set the current value, just in case we are setting it again for an answer change
+      this.currentIndex = i
+      setTimeout(()=>this.currentIndex = i+1, 0)
     }
   }
 }
