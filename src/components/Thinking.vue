@@ -13,10 +13,17 @@
   display: flex;
 }
 .bubble{
-  background-color: #032942;
-  height: 5px;
-  width: 5px;
-  margin-right: 5px;
+  background-color: $mid-blue;
+  height: 6px;
+  width: 6px;
+  margin-right: 4px;
   border-radius: 100%;
+  opacity: 0.3;
+  &:first-child{
+    opacity: 1;
+  }
+  &:last-child{
+    opacity: 0.1;
+  }
 }
 </style>

@@ -1,9 +1,9 @@
 <template>
   <div class="message" :class="{ incoming: messageData.incoming }">
-    <div class="avatar">{{ name }}</div>
+    <div class="avatar"><span>{{ name }}</span></div>
     <Thinking v-if="pending" />
     <div class="content" v-else>
-      <div class="text">
+      <div class="text" v-if="messageData.text">
         <strong v-if="messageData.reiterate">{{reiterate}}</strong>{{messageData.text}}
       </div>
       <Options v-if="messageData.options" @choice="handleOptionChoice" :options="messageData.options" />
@@ -63,32 +63,63 @@ export default {
   display: flex;
   flex-direction: row-reverse;
   margin-bottom: 20px;
+  font-family: "Helvetica Neue";
+  font-size: 18px;
+  line-height: 26px;
 }
 .content{
   background-color: #ffffff;
   flex-basis: 60%;
-  padding: 40px 30px;
-  border-radius: 20px 0 20px 20px;
+  padding: 12px 32px;
+  border-radius: 16px 0 16px 16px;
+}
+.text{
+  padding: 20px 0;
 }
 .avatar{
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 60px;
-  width: 60px;
-  background-color: #1c1f4e;
+  height: 56px;
+  width: 56px;
+  background-color: $dark-blue;
   border-radius: 100%;
-  margin: 0 20px;
+  margin: 0 0 0 18px;
+  color: white;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 28px;
+  text-align: center;
 }
 /* incoming (bot) overrides */
 .message.incoming{
   flex-direction: row;
   .content{
+    color: $dark-blue;
     border-radius: 0 20px 20px 20px;
-    background-color: #edf0f2;
+    background-color: $light-grey-background;
   }
   .avatar{
-    background-color: #c8edfc;
+    margin: 0 18px 0 0;
+    background-color: $light-blue;
+    color: #1C1F4E;
+    font-size: 28px;
+    span{
+        margin-bottom: 4px;
+    }
+  }
+}
+@media screen and (max-width: 600px){
+  .message,
+  .message.incoming {
+    flex-direction: column;
+    .avatar{
+      margin-bottom: 18px;
+      align-self: flex-end;
+    }
+  }
+  .message.incoming .avatar{ 
+    align-self: flex-start;
   }
 }
 </style>

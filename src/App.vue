@@ -25,6 +25,7 @@ body {
   margin: 0;
   box-sizing: border-box;
   background-color: #f7f8f9;
+  color: $mid-blue;
 }
 header {
   display: flex;
@@ -39,7 +40,7 @@ header {
   }
 }
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
