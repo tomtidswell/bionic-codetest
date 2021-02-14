@@ -68,7 +68,7 @@ export default {
   line-height: 26px;
 }
 .content{
-  background-color: #ffffff;
+  background-color: white;
   flex-basis: 60%;
   padding: 12px 32px;
   border-radius: 16px 0 16px 16px;

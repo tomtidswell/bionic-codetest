@@ -24,16 +24,16 @@ export default {
 body {
   margin: 0;
   box-sizing: border-box;
-  background-color: #f7f8f9;
+  background-color: $page-background;
   color: $mid-blue;
 }
 header {
   display: flex;
   align-items: flex-end;
   height: 100px;
-  background-color: #1c1f4e;
+  background-color: $dark-blue;
   .corners {
-    background-color: #f7f8f9;
+    background-color: $page-background;
     height: 20px;
     flex-basis: 100%;
     border-radius: 20px 20px 0 0;
@@ -49,5 +49,6 @@ main {
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
+  margin-bottom: 40px;
 }
 </style>
