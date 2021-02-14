@@ -13,6 +13,9 @@ Future tasks not yet completed:
 - More detailed testing, including specific unit tests of the individual components
 - The styling may need additional tweaks, I limited this to stay within a reasonable timeframe for the task
 
+## Github pages
+A github pages deployed version of the app can be found here [www.tomtidswell.co.uk/bionic-codetest/](https://www.tomtidswell.co.uk/bionic-codetest/)
+
 ## Project setup
 Download the required dependencies:
 ```
